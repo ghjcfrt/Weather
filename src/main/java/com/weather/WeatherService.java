@@ -20,6 +20,8 @@ import org.json.JSONObject;
 public class WeatherService {
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5";
     private static final int FORECASTS_PER_DAY = 8; // 3-hour intervals: 24h / 3h = 8 forecasts per day
+    private static final int CONNECTION_TIMEOUT_MS = 5000;
+    private static final int READ_TIMEOUT_MS = 5000;
     private String apiKey;
 
     public WeatherService(String apiKey) {
@@ -76,8 +78,8 @@ public class WeatherService {
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        conn.setConnectTimeout(5000);
-        conn.setReadTimeout(5000);
+        conn.setConnectTimeout(CONNECTION_TIMEOUT_MS);
+        conn.setReadTimeout(READ_TIMEOUT_MS);
 
         int responseCode = conn.getResponseCode();
         if (responseCode != 200) {
