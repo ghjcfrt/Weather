@@ -19,6 +19,7 @@ import org.json.JSONObject;
  */
 public class WeatherService {
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5";
+    private static final int FORECASTS_PER_DAY = 8; // 3-hour intervals: 24h / 3h = 8 forecasts per day
     private String apiKey;
 
     public WeatherService(String apiKey) {
@@ -54,7 +55,7 @@ public class WeatherService {
     public List<WeatherForecast> getForecast(String cityName, int days) throws Exception {
         String encodedCity = URLEncoder.encode(cityName, StandardCharsets.UTF_8.toString());
         String urlString = String.format("%s/forecast?q=%s&appid=%s&units=metric&cnt=%d", 
-                BASE_URL, encodedCity, apiKey, days * 8); // 8 forecasts per day (3-hour intervals)
+                BASE_URL, encodedCity, apiKey, days * FORECASTS_PER_DAY);
         
         String response = makeApiRequest(urlString);
         return parseForecast(response);
@@ -65,7 +66,7 @@ public class WeatherService {
      */
     public List<WeatherForecast> getForecast(double lat, double lon, int days) throws Exception {
         String urlString = String.format("%s/forecast?lat=%f&lon=%f&appid=%s&units=metric&cnt=%d", 
-                BASE_URL, lat, lon, apiKey, days * 8);
+                BASE_URL, lat, lon, apiKey, days * FORECASTS_PER_DAY);
         
         String response = makeApiRequest(urlString);
         return parseForecast(response);
