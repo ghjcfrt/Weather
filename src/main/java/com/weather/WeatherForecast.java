@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Represents a weather forecast entry for a specific time
+ * 表示特定时间的天气预报条目
  */
 public class WeatherForecast {
     private LocalDateTime dateTime;

@@ -1,79 +1,79 @@
-# Weather Forecast Application
+# 天气预报应用
 
-A Java application for querying current weather and future weather forecasts using the OpenWeatherMap API.
+一个使用 OpenWeatherMap API 查询当前天气和未来天气预报的 Java 应用程序。
 
-## Features
+## 功能特性
 
-- Query current weather conditions for any city
-- Get weather forecasts for up to 5 days
-- Display detailed weather information including:
-  - Temperature (current, feels like, min, max)
-  - Weather conditions and descriptions
-  - Humidity percentage
-  - Wind speed
-  - Atmospheric pressure
+- 查询任何城市的当前天气状况
+- 获取最多 5 天的天气预报
+- 显示详细的天气信息，包括：
+  - 温度（当前、体感、最低、最高）
+  - 天气状况和描述
+  - 湿度百分比
+  - 风速
+  - 大气压力
 
-## Architecture
+## 架构设计
 
-The application uses object-oriented design with the following classes:
+应用程序采用面向对象设计，包含以下类：
 
-- **City**: Represents a city with name, country, and coordinates
-- **Weather**: Represents current weather information
-- **WeatherForecast**: Represents forecast data for a specific time
-- **WeatherService**: Handles API communication with OpenWeatherMap
-- **WeatherApp**: Main application with interactive CLI
+- **City**：表示包含名称、国家和坐标的城市
+- **Weather**：表示当前天气信息
+- **WeatherForecast**：表示特定时间的预报数据
+- **WeatherService**：处理与 OpenWeatherMap 的 API 通信
+- **WeatherApp**：带有交互式命令行界面的主应用程序
 
-## Prerequisites
+## 前置要求
 
-- Java 11 or higher
-- Maven 3.6 or higher
-- OpenWeatherMap API key (free registration at https://openweathermap.org/api)
+- Java 11 或更高版本
+- Maven 3.6 或更高版本
+- OpenWeatherMap API 密钥（在 https://openweathermap.org/api 免费注册）
 
-## Setup
+## 安装配置
 
-1. Clone the repository:
+1. 克隆仓库：
 ```bash
 git clone https://github.com/ghjcfrt/Weather.git
 cd Weather
 ```
 
-2. Get an API key:
-   - Register at https://openweathermap.org/api
-   - Create a free API key
-   - Note: It may take a few minutes for the API key to activate
+2. 获取 API 密钥：
+   - 在 https://openweathermap.org/api 注册
+   - 创建一个免费的 API 密钥
+   - 注意：API 密钥可能需要几分钟才能激活
 
-3. Set the API key as an environment variable:
+3. 将 API 密钥设置为环境变量：
 ```bash
 export OPENWEATHER_API_KEY=your_api_key_here
 ```
 
-## Building
+## 构建
 
-Build the project using Maven:
+使用 Maven 构建项目：
 
 ```bash
 mvn clean package
 ```
 
-This will create an executable JAR file: `target/weather-app.jar`
+这将创建一个可执行的 JAR 文件：`target/weather-app.jar`
 
-## Running
+## 运行
 
-Run the application:
+运行应用程序：
 
 ```bash
 java -jar target/weather-app.jar
 ```
 
-Or run directly with Maven:
+或直接使用 Maven 运行：
 
 ```bash
 mvn exec:java -Dexec.mainClass="com.weather.WeatherApp"
 ```
 
-## Usage
+## 使用说明
 
-When you run the application, you'll see an interactive menu:
+运行应用程序后，您将看到一个交互式菜单：
 
 ```
 =================================
@@ -88,13 +88,13 @@ Options:
 Select an option:
 ```
 
-### Get Current Weather
+### 获取当前天气
 
-1. Select option 1
-2. Enter a city name (e.g., "London", "Beijing", "New York")
-3. View the current weather information
+1. 选择选项 1
+2. 输入城市名称（例如："London"、"Beijing"、"New York"）
+3. 查看当前天气信息
 
-Example output:
+示例输出：
 ```
 Weather in London, GB:
   Temperature: 15.2°C (Feels like: 14.1°C)
@@ -104,14 +104,14 @@ Weather in London, GB:
   Pressure: 1015 hPa
 ```
 
-### Get Weather Forecast
+### 获取天气预报
 
-1. Select option 2
-2. Enter a city name
-3. Enter the number of days (1-5)
-4. View the weather forecast with 3-hour intervals
+1. 选择选项 2
+2. 输入城市名称
+3. 输入天数（1-5）
+4. 查看 3 小时间隔的天气预报
 
-Example output:
+示例输出：
 ```
 Weather Forecast for London:
 =========================================
@@ -120,16 +120,16 @@ Weather Forecast for London:
 ...
 ```
 
-## API Documentation
+## API 文档
 
-The application uses the OpenWeatherMap API:
+应用程序使用 OpenWeatherMap API：
 
-- Current Weather: `https://api.openweathermap.org/data/2.5/weather`
-- 5 Day Forecast: `https://api.openweathermap.org/data/2.5/forecast`
+- 当前天气：`https://api.openweathermap.org/data/2.5/weather`
+- 5 天预报：`https://api.openweathermap.org/data/2.5/forecast`
 
-All temperatures are in Celsius (metric units).
+所有温度均为摄氏度（公制单位）。
 
-## Project Structure
+## 项目结构
 
 ```
 Weather/
@@ -152,14 +152,14 @@ Weather/
 └── README.md
 ```
 
-## Dependencies
+## 依赖项
 
-- [org.json](https://github.com/stleary/JSON-java) - JSON parsing library
+- [org.json](https://github.com/stleary/JSON-java) - JSON 解析库
 
-## License
+## 许可证
 
-This project is open source and available for educational purposes.
+本项目是开源的，可用于教育目的。
 
-## Author
+## 作者
 
-Created as a weather forecast application demonstrating Java OOP principles and API integration.
+创建此天气预报应用程序以演示 Java 面向对象编程原理和 API 集成。

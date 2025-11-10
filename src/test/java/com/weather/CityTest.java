@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the City class
+ * City 类的单元测试
  */
 public class CityTest {
 

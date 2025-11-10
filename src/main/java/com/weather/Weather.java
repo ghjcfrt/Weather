@@ -3,7 +3,7 @@ package com.weather;
 import java.time.LocalDateTime;
 
 /**
- * Represents current weather information for a location
+ * 表示某个地点的当前天气信息
  */
 public class Weather {
     private City city;

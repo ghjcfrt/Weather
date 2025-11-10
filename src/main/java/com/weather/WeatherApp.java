@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Main application class for the Weather Forecast Application
+ * 天气预报应用程序的主应用程序类
  */
 public class WeatherApp {
     private WeatherService weatherService;
@@ -103,7 +103,7 @@ public class WeatherApp {
     }
 
     public static void main(String[] args) {
-        // Check if API key is provided
+        // 检查是否提供了 API 密钥
         String apiKey = System.getenv("OPENWEATHER_API_KEY");
         
         if (apiKey == null || apiKey.isEmpty()) {

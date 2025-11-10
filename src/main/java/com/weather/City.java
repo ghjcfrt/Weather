@@ -1,7 +1,7 @@
 package com.weather;
 
 /**
- * Represents a city with its location information
+ * 表示包含位置信息的城市
  */
 public class City {
     private String name;

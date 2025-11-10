@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the WeatherForecast class
+ * WeatherForecast 类的单元测试
  */
 public class WeatherForecastTest {
 
