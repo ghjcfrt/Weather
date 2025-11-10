@@ -10,8 +10,8 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Weather Forecast Application</name>
-    <description>A Java application to query current weather and weather forecasts using OpenWeatherMap API</description>
+    <name>天气预报应用程序</name>
+    <description>一个使用 OpenWeatherMap API 查询当前天气和天气预报的 Java 应用程序</description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -20,14 +20,14 @@
     </properties>
 
     <dependencies>
-        <!-- JSON parsing library -->
+        <!-- JSON 解析库 -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20231013</version>
         </dependency>
 
-        <!-- JUnit for testing -->
+        <!-- JUnit 测试框架 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

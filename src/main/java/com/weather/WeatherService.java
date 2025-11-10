@@ -15,11 +15,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Service class to interact with OpenWeatherMap API
+ * 与 OpenWeatherMap API 交互的服务类
  */
 public class WeatherService {
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5";
-    private static final int FORECASTS_PER_DAY = 8; // 3-hour intervals: 24h / 3h = 8 forecasts per day
+    private static final int FORECASTS_PER_DAY = 8; // 3小时间隔：24小时 / 3小时 = 每天8次预报
     private static final int CONNECTION_TIMEOUT_MS = 5000;
     private static final int READ_TIMEOUT_MS = 5000;
     private String apiKey;
@@ -29,7 +29,7 @@ public class WeatherService {
     }
 
     /**
-     * Get current weather for a city
+     * 获取城市的当前天气
      */
     public Weather getCurrentWeather(String cityName) throws Exception {
         String encodedCity = URLEncoder.encode(cityName, StandardCharsets.UTF_8.toString());
@@ -41,7 +41,7 @@ public class WeatherService {
     }
 
     /**
-     * Get current weather for a city by coordinates
+     * 通过坐标获取当前天气
      */
     public Weather getCurrentWeather(double lat, double lon) throws Exception {
         String urlString = String.format("%s/weather?lat=%f&lon=%f&appid=%s&units=metric", 
@@ -52,7 +52,7 @@ public class WeatherService {
     }
 
     /**
-     * Get weather forecast for a city (5 day forecast with 3-hour intervals)
+     * 获取城市的天气预报（5天预报，3小时间隔）
      */
     public List<WeatherForecast> getForecast(String cityName, int days) throws Exception {
         String encodedCity = URLEncoder.encode(cityName, StandardCharsets.UTF_8.toString());
@@ -64,7 +64,7 @@ public class WeatherService {
     }
 
     /**
-     * Get weather forecast by coordinates
+     * 通过坐标获取天气预报
      */
     public List<WeatherForecast> getForecast(double lat, double lon, int days) throws Exception {
         String urlString = String.format("%s/forecast?lat=%f&lon=%f&appid=%s&units=metric&cnt=%d", 
@@ -109,7 +109,7 @@ public class WeatherService {
     private Weather parseCurrentWeather(String jsonResponse) {
         JSONObject json = new JSONObject(jsonResponse);
         
-        // Parse city information
+        // 解析城市信息
         String cityName = json.getString("name");
         JSONObject sys = json.getJSONObject("sys");
         String country = sys.optString("country", "");
@@ -120,7 +120,7 @@ public class WeatherService {
         City city = new City(cityName, country, lat, lon);
         Weather weather = new Weather(city);
 
-        // Parse weather data
+        // 解析天气数据
         JSONObject main = json.getJSONObject("main");
         weather.setTemperature(main.getDouble("temp"));
         weather.setFeelsLike(main.getDouble("feels_like"));
